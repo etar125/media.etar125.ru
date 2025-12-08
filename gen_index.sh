@@ -18,6 +18,7 @@ for a in $(find . -maxdepth 1 -type f); do
     [ "$path" = 'gen_index.sh' ] && continue
     [ "$path" = 'index.html' ] && continue
     [ "$path" = 'LICENSE' ] && continue
+    [ "$path" = 'CNAME' ] && continue
     cat >> index.html << EOF
 <li><a href="https://media.etar125.ru/${path}">${path}</a></li>
 EOF
