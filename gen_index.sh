@@ -13,12 +13,14 @@ cat >> index.html << EOF
 Список файлов
 <ul>
 EOF
-for a in $(find . -maxdepth 1 -type f); do
+for a in $(find . -maxdepth 1 -type f | sort); do
     path=$(echo $a | cut -c 3-)
     [ "$path" = 'gen_index.sh' ] && continue
     [ "$path" = 'index.html' ] && continue
     [ "$path" = 'LICENSE' ] && continue
     [ "$path" = 'CNAME' ] && continue
+    [ "$path" = 'LICENSE' ] && continue
+    [ "$path" = 'style.css' ] && continue
     cat >> index.html << EOF
 <li><a href="https://media.etar125.ru/${path}">${path}</a></li>
 EOF
