@@ -1,4 +1,9 @@
 #!/bin/sh
+mkdir -p ~/docs/1gb.ru/gmdel
+for file in $(find . -type f -name \*.png); do
+    magick $file $(basename $file .png).jpg
+    mv $file ~/docs/1gb.ru/gmdel/
+done
 rm -f index.html
 cat >> index.html << EOF
 <!DOCTYPE html>
